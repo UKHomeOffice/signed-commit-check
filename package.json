@@ -1,0 +1,19 @@
+{
+  "name": "signed-commit-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/signed-commit-check.git"
+  },
+  "author": "Chris Nesbitt-Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/signed-commit-check/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/signed-commit-check#readme"
+}
