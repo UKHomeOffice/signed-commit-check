@@ -13,7 +13,7 @@ const statusFailure = 'failure'
 app.use(bodyParser.json())
 
 app.post('/github', function (req, res) {
-  if (req.headers['x-github-event'] !== 'push' | req.body.ref === `refs/heads/${req.body.repository.default_branch}`) {
+  if (req.headers['x-github-event'] !== 'push' || req.body.ref === `refs/heads/${req.body.repository.default_branch}`) {
     return res.send('not for us')
   }
 

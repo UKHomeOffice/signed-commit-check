@@ -2,10 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  annotations:
-    kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/secure-backends: "true"
-  name: signed-commit-check
+  name: signed-commit-ingress
 spec:
   rules:
   - host: signed-commit-check.notprod.homeoffice.gov.uk
@@ -13,9 +10,5 @@ spec:
       paths:
       - backend:
           serviceName: signed-commit-check-service
-          servicePort: 443
+          servicePort: http
         path: /
-  tls:
-  - hosts:
-    - signed-commit-check.notprod.homeoffice.gov.uk
-    secretName: letsencrypt-signed-commit-check
