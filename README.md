@@ -1,4 +1,6 @@
 # Signed commit checker
+[![Build Status](https://travis-ci.org/UKHomeOffice/signed-commit-check.svg?branch=master)](https://travis-ci.org/UKHomeOffice/signed-commit-check)
+
 This is a github integration for checking if all your commits are signed
 There is a limitation in that it can with with **only 250 commits** between master and the branch, anything beyond that and it 'may' (according to github) throw an error.
 
