@@ -1,6 +1,5 @@
 # Signed commit checker
 [![Build Status](https://travis-ci.org/UKHomeOffice/signed-commit-check.svg?branch=master)](https://travis-ci.org/UKHomeOffice/signed-commit-check)
-[![Build Status](https://drone-external.digital.homeoffice.gov.uk/api/badges/UKHomeOffice/signed-commit-check/status.svg)](https://drone.digital.homeoffice.gov.uk/UKHomeOffice/signed-commit-check)
 [![Docker Repository on Quay](https://quay.io/repository/ukhomeofficedigital/signed-commit-check/status "Docker Repository on Quay")](https://quay.io/repository/ukhomeofficedigital/signed-commit-check)
 
 This is a github integration for checking if all your commits are signed
@@ -16,7 +15,7 @@ GITHUB_PRIVATEKEY=`cat private.key` npm start
 or
 ```bash
 docker build -t signed-checker .
-docker run -e GITHUB_PRIVATEKEY=`cat private.key` -p 8080:8080 signed-checker
+docker run -e GITHUB_PRIVATEKEY=`cat private.key` -p 4000:4000 signed-checker
 ```
 You then need to make an installation that'll point at https://yourexternaladdress/github
 
