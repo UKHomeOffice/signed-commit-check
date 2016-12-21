@@ -30,3 +30,4 @@ I'll presume you can figure out a https endpoint above this service, which you r
  - [x] check all commits in difference are signed commit.verification.verified === true
  - [x] set status of head commit to success/failure https://developer.github.com/v3/repos/statuses/#create-a-status
  - [ ] reproduce everything for gitlab
+f
