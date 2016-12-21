@@ -28,6 +28,7 @@ pipeline:
     environment:
       - KUBE_SERVER=https://kube-dev.dsp.notprod.homeoffice.gov.uk
       - KUBE_NAMESPACE=dev-induction
+      - INSECURE_SKIP_TLS_VERIFY=true
     commands:
       - cd kube
       - kd -f deployment.yml -f ingress.yml -f service.yml -f secrets.yml
