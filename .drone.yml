@@ -23,16 +23,16 @@ pipeline:
       branch: master
       event: push
 
-#  deploy:
-#    image: quay.io/ukhomeofficedigital/kd:v0.2.2
-#    environment:
-#      - KUBE_NAMESPACE=dev-induction
-#    commands:
-#      - cd kube-signed-commit-check
-#      - ./deploy.sh
-#    when:
-#      environment: dev-induction
-#      event: deployment
+  deploy_to_dev:
+    image: quay.io/ukhomeofficedigital/kd:latest
+    environment:
+      - KUBE_NAMESPACE=dev-induction
+    commands:
+      - cd kube
+      - kd -f deployment.yml -f ingress.yml -f service.yml -f secrets.yaml
+    when:
+      event: [deployment, push]
+      branch: master
 
 services:
   dind:
