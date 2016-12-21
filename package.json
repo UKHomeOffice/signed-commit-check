@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "lint": "eslint .",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,20 @@
   "bugs": {
     "url": "https://github.com/UKHomeOffice/signed-commit-check/issues"
   },
-  "homepage": "https://github.com/UKHomeOffice/signed-commit-check#readme"
+  "homepage": "https://github.com/UKHomeOffice/signed-commit-check#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "github": "^7.1.0",
+    "jsonwebtoken": "^7.2.1",
+    "node-github": "0.0.3",
+    "octokat": "^0.4.18"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
+  }
 }
