@@ -29,7 +29,7 @@ pipeline:
       - KUBE_NAMESPACE=dev-induction
     commands:
       - cd kube
-      - kd -f deployment.yml -f ingress.yml -f service.yml -f secrets.yaml
+      - kd -f deployment.yml -f ingress.yml -f service.yml -f secrets.yml
     when:
       event: [deployment, push]
       branch: master
