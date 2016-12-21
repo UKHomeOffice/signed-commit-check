@@ -2,7 +2,6 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
-const fs = require('fs')
 const cert = process.env.GITHUB_PRIVATEKEY
 const GitHubApi = require('github')
 const PORT = 8080
@@ -14,7 +13,6 @@ const statusFailure = 'failure'
 app.use(bodyParser.json())
 
 app.post('/github', function (req, res) {
-
   if (req.headers['x-github-event'] !== 'push' | req.body.ref === `refs/heads/${req.body.repository.default_branch}`) {
     return res.send('not for us')
   }
