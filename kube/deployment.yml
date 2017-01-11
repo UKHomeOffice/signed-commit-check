@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: signed-commit-check
 spec:
-  replicas: 1
+  replicas: 5
   template:
     metadata:
       labels:
