@@ -26,8 +26,8 @@ pipeline:
   deploy_to_dev:
     image: quay.io/ukhomeofficedigital/kd:latest
     environment:
-      - KUBE_SERVER=https://kube-dev.dsp.notprod.homeoffice.gov.uk
-      - KUBE_NAMESPACE=dev-induction
+      - KUBE_SERVER=https://kube-hod-ops.ops.digital.homeoffice.gov.uk
+      - KUBE_NAMESPACE=signed-commit-check
       - INSECURE_SKIP_TLS_VERIFY=true
     commands:
       - cd kube
