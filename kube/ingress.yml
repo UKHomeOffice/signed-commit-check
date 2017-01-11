@@ -5,7 +5,7 @@ metadata:
   name: signed-commit-ingress
 spec:
   rules:
-  - host: signed-commit-check.notprod.homeoffice.gov.uk
+  - host: signed-commit-check.ops.digital.homeoffice.gov.uk
     http:
       paths:
       - backend:
