@@ -21,6 +21,10 @@ You then need to make an installation that'll point at https://yourexternaladdre
 
 I'll presume you can figure out a https endpoint above this service, which you really should.
 
+## Deployment
+
+This is deployed via: https://github.com/UKHomeOffice/kube-signed-commit-check
+
 ## Roadmap
  - [ ] verify request is from github see req.headers['x-hub-signature'] and https://developer.github.com/webhooks/securing/#validating-payloads-from-github
  - [ ] verify request is from a known github ip address
