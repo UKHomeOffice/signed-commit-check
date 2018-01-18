@@ -1,45 +1,24 @@
 pipeline:
-
-  my-build:
-    privileged: true
-    image: docker:1.11
+  build:
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
-    commands:
-      - docker build -t signed-commit-check .
+      - DOCKER_USERNAME=ukhomeofficedigital+signed_commit_check
+    image: ukhomeoffice/drone-docker
+    registry: quay.io
+    repo: quay.io/ukhomeofficedigital/signed-commit-check
+    secrets: [ docker_password ]
+    tags:
+      - ${DRONE_COMMIT_SHA}
     when:
-      branch: master
       event: push
 
-  image_to_quay:
-    image: docker:1.11
+  build_tag:
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
-    commands:
-      - docker login -u="ukhomeofficedigital+signed_commit_check" -p=${DOCKER_PASSWORD} quay.io
-      - docker tag signed-commit-check quay.io/ukhomeofficedigital/signed-commit-check:${DRONE_COMMIT_SHA}
-      - docker push quay.io/ukhomeofficedigital/signed-commit-check:${DRONE_COMMIT_SHA}
+      - DOCKER_USERNAME=ukhomeofficedigital+signed_commit_check
+    image: ukhomeoffice/drone-docker
+    registry: quay.io
+    repo: quay.io/ukhomeofficedigital/signed-commit-check
+    secrets: [ docker_password ]
+    tags:
+      - ${DRONE_TAG}
     when:
-      branch: master
-      event: push
-
-  deploy_to_dev:
-    image: quay.io/ukhomeofficedigital/kd:latest
-    environment:
-      - KUBE_SERVER=https://kube-hod-ops.ops.digital.homeoffice.gov.uk
-      - KUBE_NAMESPACE=signed-commit-check
-      - INSECURE_SKIP_TLS_VERIFY=true
-    commands:
-      - cd kube
-      - kd -f secrets.yml -f deployment.yml -f ingress.yml -f service.yml
-    when:
-      event: [deployment, push]
-      branch: master
-
-services:
-  dind:
-    image: docker:1.11-dind
-    privileged: true
-    command:
-      - "-s"
-      - "overlay"
+      event: tag
