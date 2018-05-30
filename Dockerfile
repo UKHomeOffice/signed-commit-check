@@ -1,8 +1,8 @@
 FROM quay.io/ukhomeofficedigital/nodejs-base:v6.9.1
 
-RUN useradd app
+RUN adduser -u 1000 app
 
-USER app
+USER 1000
 WORKDIR /home/app
 
 COPY package.json ./
