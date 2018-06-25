@@ -2,7 +2,7 @@ pipeline:
   build:
     environment:
       - DOCKER_USERNAME=ukhomeofficedigital+signed_commit_check
-    image: ukhomeoffice/drone-docker
+    image: quay.io/ukhomeofficedigital/drone-docker
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/signed-commit-check
     secrets: [ docker_password ]
@@ -14,7 +14,7 @@ pipeline:
   build_tag:
     environment:
       - DOCKER_USERNAME=ukhomeofficedigital+signed_commit_check
-    image: ukhomeoffice/drone-docker
+    image: quay.io/ukhomeofficedigital/drone-docker
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/signed-commit-check
     secrets: [ docker_password ]
